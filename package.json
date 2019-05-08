@@ -1,0 +1,27 @@
+{
+  "name": "auth.bitcoin.com",
+  "version": "1.0.0",
+  "description": "Single sign-on authorization server for rest.bitcoin.com",
+  "author": "Chris Troutner <chris.troutner@gmail.com>",
+  "contributors": [
+    "Gabriel Cardona <gabriel@bitcoin.com>"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo no tests yet"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "semantic-release": "^15.13.12",
+    "socket.io": "^2.2.0"
+  },
+  "release": {
+    "publish": [
+      {
+        "path": "@semantic-release/npm",
+        "npmPublish": false
+      }
+    ]
+  }
+}
