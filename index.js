@@ -3,8 +3,6 @@
   The reason for using this as a starting point is that both express and
   websockets are core architectural components for CashID and Badger Wallet
   single sign-on.
-
-  Dummy changes to kick off Travis CI.
 */
 
 var app = require('express')();
