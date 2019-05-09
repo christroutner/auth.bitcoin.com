@@ -80,6 +80,8 @@ async function cashId(req, res, next) {
 
 async function newUser(req, res, next) {
   try {
+    //console.log(`req.body: ${JSON.stringify(req.body, null, 2)}`)
+
     const user = req.body.user
 
     // Input Validation.
@@ -123,7 +125,7 @@ async function newUser(req, res, next) {
 
     return res.json({ success: true })
   } catch (err) {
-    console.error(`Error in user.js/newUser2(): `, err)
+    console.error(`Error in user.js/newUser(): `, err)
   }
 }
 

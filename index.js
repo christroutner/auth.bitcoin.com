@@ -7,11 +7,18 @@
 
 var app = require("express")()
 var http = require("http").Server(app)
-var io = require("socket.io")(http)
+var io = require("socket.io")(http) // Websockets
+const cors = require("cors") // Enable CORS
+const bodyParser = require("body-parser") // Pass data in the body of a REST call.
 
 const wlogger = require("./src/lib/winston-logging")
 
 const user = require("./src/routes/v1/user")
+
+// Enable middleware
+app.use(cors())
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 
 const v1prefix = "v1"
 app.use(`/${v1prefix}/user`, user.router)
