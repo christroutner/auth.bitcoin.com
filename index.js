@@ -11,6 +11,11 @@ var io = require("socket.io")(http)
 
 const wlogger = require("./src/lib/winston-logging")
 
+const user = require("./src/routes/v1/user")
+
+const v1prefix = "v1"
+app.use(`/${v1prefix}/user`, user.router)
+
 app.get("/", function(req, res) {
   res.sendFile(`${__dirname}/index.html`)
 })

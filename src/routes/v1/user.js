@@ -12,13 +12,8 @@ const CashID = require("cashid")
 
 const wlogger = require("../../lib/winston-logging")
 
-const JWT = require("../../util/jwt")
+const JWT = require("../../lib/jwt")
 const jwt = new JWT()
-
-//const mongoose = require("mongoose")
-
-//Configure mongoose's promise to global promise
-//mongoose.Promise = global.Promise
 
 const passport = require("passport")
 //const auth = require("../auth")
@@ -26,7 +21,7 @@ const passport = require("passport")
 //const Users = mongoose.model("Users")
 //const Users = require("../../models/users")
 
-const UserDB = require("../../util/cassandra/cassandra-db")
+const UserDB = require("../../lib/cassandra/cassandra-db")
 const userDB = new UserDB()
 
 router.get("/", root)
