@@ -2,8 +2,6 @@
   Routes for user authentication.
  */
 
-"use strict"
-
 // Used for debugging and iterrogating JS objects.
 const util = require("util")
 util.inspect.defaultOptions = { depth: 1 }
@@ -12,7 +10,7 @@ const express = require("express")
 const router = express.Router()
 const CashID = require("cashid")
 
-const wlogger = require("../../util/winston-logging")
+const wlogger = require("../../lib/winston-logging")
 
 const JWT = require("../../util/jwt")
 const jwt = new JWT()
