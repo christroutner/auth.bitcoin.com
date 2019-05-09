@@ -4,16 +4,12 @@
   logging library.
 */
 
-"use strict"
-
-var winston = require("winston")
+const winston = require("winston")
 require("winston-daily-rotate-file")
-
-var NETWORK = process.env.NETWORK
 
 // Configure daily-rotation transport.
 var transport = new winston.transports.DailyRotateFile({
-  filename: `${__dirname}/../../logs/rest-${NETWORK}-%DATE%.log`,
+  filename: `${__dirname}/../../logs/auth-%DATE%.log`,
   datePattern: "YYYY-MM-DD",
   zippedArchive: false,
   maxSize: "1m",

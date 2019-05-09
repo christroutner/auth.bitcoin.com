@@ -9,6 +9,8 @@ var app = require("express")()
 var http = require("http").Server(app)
 var io = require("socket.io")(http)
 
+const wlogger = require("./src/lib/winston-logging")
+
 app.get("/", function(req, res) {
   res.sendFile(`${__dirname}/index.html`)
 })
@@ -29,4 +31,7 @@ io.on("connection", function(socket) {
 
 http.listen(3000, function() {
   console.log(`Server listening on http://localhost:3000`)
+
+  const now = new Date()
+  wlogger.info(`Server started at ${now.toLocaleString()}`)
 })
