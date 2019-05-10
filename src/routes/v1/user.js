@@ -16,6 +16,7 @@ const JWT = require("../../lib/jwt")
 const jwt = new JWT()
 
 const passport = require("passport")
+const LocalStrategy = require("passport-local")
 //const auth = require("../auth")
 //require("../../models/users")
 //const Users = mongoose.model("Users")
@@ -23,6 +24,36 @@ const passport = require("passport")
 
 const UserDB = require("../../lib/cassandra/cassandra-db")
 const userDB = new UserDB()
+
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "user[email]",
+      passwordField: "user[password]",
+      passReqToCallback: true,
+      session: false
+    },
+    async (req, email, password, done) => {
+      console.log(`Checking against local strategy.`)
+
+      // Lookup the user from the database.
+      const userData = await userDB.findByEmail(email)
+      //console.log(`userData: ${util.inspect(userDataRaw)}`)
+
+      // Hash the password and see if it matches the saved hash.
+      const isValid = jwt.validatePassword(userData, password)
+
+      if (isValid) {
+        //console.log(`Passwords match!`)
+        return done(null, userData)
+      }
+
+      return done(null, false, {
+        errors: { "email or password": "is invalid" }
+      })
+    }
+  )
+)
 
 router.get("/", root)
 router.post("/", newUser)
