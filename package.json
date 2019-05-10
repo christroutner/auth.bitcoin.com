@@ -9,12 +9,20 @@
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
-    "test": "echo no tests yet"
+    "test": "mocha test/v1/unit"
   },
   "dependencies": {
+    "cashid": "^0.2.5",
+    "cassandra-driver": "^4.1.0",
+    "cors": "^2.8.5",
     "express": "^4.16.4",
+    "jsonwebtoken": "^8.5.1",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
     "semantic-release": "^15.13.12",
-    "socket.io": "^2.2.0"
+    "socket.io": "^2.2.0",
+    "winston": "^3.2.1",
+    "winston-daily-rotate-file": "^3.9.0"
   },
   "release": {
     "publish": [
@@ -23,5 +31,14 @@
         "npmPublish": false
       }
     ]
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "coveralls": "^3.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-prettier": "^3.0.1",
+    "mocha": "^6.1.4",
+    "nyc": "^14.1.0",
+    "prettier": "^1.17.0"
   }
 }
