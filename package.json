@@ -12,7 +12,7 @@
     "test": "mocha test/v1/unit"
   },
   "dependencies": {
-    "cashid": "^0.2.5",
+    "cashid": "^0.3.1",
     "cassandra-driver": "^4.1.0",
     "cors": "^2.8.5",
     "express": "^4.16.4",
