@@ -22,7 +22,7 @@
     "semantic-release": "^15.13.12",
     "socket.io": "^2.2.0",
     "winston": "^3.2.1",
-    "winston-daily-rotate-file": "^3.9.0"
+    "winston-daily-rotate-file": "^4.4.0"
   },
   "release": {
     "publish": [
